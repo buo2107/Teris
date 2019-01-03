@@ -10,18 +10,18 @@ import SpriteKit
 import GameplayKit
 
 let BlockSize:CGFloat = 20.0
-let TickLengthLevelOne = TimeInterval(600)
+let TickLengthLevelOne = TimeInterval(600) //每隔0.6秒形狀就往下掉一行
 
 class GameScene: SKScene {
     
-    // #8
+    
     let gameLayer = SKNode()
     let shapeLayer = SKNode()
     let LayerPosition = CGPoint(x: 6, y: -6)
     
-    var tick:(() -> ())?
+    var tick:(() -> ())? //closure不需要參數也不返回任何東西，站位符
     var tickLengthMillis = TickLengthLevelOne
-    var lastTick:NSDate?
+    var lastTick:NSDate? //最後一次紀錄的時間
     
     var textureCache = Dictionary<String, SKTexture>()
     
@@ -64,22 +64,25 @@ class GameScene: SKScene {
         guard let lastTick = lastTick else {
             return
         }
+        //timeIntervalSinceNow這個函數可以返回和當前的時間比相差多少。因为是過去的時間點，所以值為负数，单位為毫秒
         let timePassed = lastTick.timeIntervalSinceNow * -1000.0
-        if timePassed > tickLengthMillis {
-            self.lastTick = NSDate()
-            tick?()
+        if timePassed > tickLengthMillis { //如果現在的時間和最後一次紀錄的時間間隔超過0.6秒
+            self.lastTick = NSDate() //就紀錄當下時間
+            tick?() //然後tick一下
         }
     }
     
+    /* lastTick不是nil，scene開始刷新 */
     func startTicking() {
         lastTick = NSDate()
     }
     
+    /* upadte函式將不斷return，scene不再刷新 */
     func stopTicking() {
         lastTick = nil
     }
     
-    // #9
+    
     func pointForColumn(column: Int, row: Int) -> CGPoint {
         let x = LayerPosition.x + (CGFloat(column) * BlockSize) + (BlockSize / 2)
         let y = LayerPosition.y - ((CGFloat(row) * BlockSize) + (BlockSize / 2))

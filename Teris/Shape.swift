@@ -9,7 +9,7 @@
 import SpriteKit
 
 let NumOrientations: UInt32 = 4
-
+/* 定義shape的４個方向 0, 90, 180, 270 */
 enum Orientation: Int, CustomStringConvertible {
     
     case Zero = 0, Ninety, OneEighty, TwoSeventy
@@ -27,6 +27,7 @@ enum Orientation: Int, CustomStringConvertible {
         }
     }
     
+    // shape一開始的方向隨機
     static func random() -> Orientation {
         return Orientation(rawValue: Int(arc4random_uniform(NumOrientations)))!
     }
@@ -41,14 +42,13 @@ enum Orientation: Int, CustomStringConvertible {
         }
         return Orientation(rawValue:rotated)!
     }
-    
 }
 
 
-// The number of total shape varieties
+// 共７種形狀
 let NumShapeTypes: UInt32 = 7
 
-// Shape indexes
+// Shape indexes（每一個shape都是由４個block組成）
 let FirstBlockIdx: Int = 0
 let SecondBlockIdx: Int = 1
 let ThirdBlockIdx: Int = 2
@@ -66,17 +66,18 @@ class Shape: Hashable, CustomStringConvertible {
     var column, row:Int
     
     // Required Overrides
-    // #2
+
     // Subclasses must override this property
     var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
         return [:]
     }
-    // #3
+
     // Subclasses must override this property
     var bottomBlocksForOrientations: [Orientation: Array<Block>] {
         return [:]
     }
-    // #4
+
+    //回傳位於底部的blocks
     var bottomBlocks:Array<Block> {
         guard let bottomBlocks = bottomBlocksForOrientations[orientation] else {
             return []
@@ -86,7 +87,6 @@ class Shape: Hashable, CustomStringConvertible {
     
     // Hashable
     var hashValue:Int {
-        // #5
         return blocks.reduce(0) { $0.hashValue ^ $1.hashValue }
     }
     
@@ -103,17 +103,17 @@ class Shape: Hashable, CustomStringConvertible {
         initializeBlocks()
     }
     
-    // #6
+    // 重載
     convenience init(column:Int, row:Int) {
         self.init(column:column, row:row, color:BlockColor.random(), orientation:Orientation.random())
     }
     
-    // #7
+    
     final func initializeBlocks() {
         guard let blockRowColumnTranslations = blockRowColumnPositions[orientation] else {
             return
         }
-        // #8
+        
         blocks = blockRowColumnTranslations.map { (diff) -> Block in
             return Block(column: column + diff.columnDiff, row: row + diff.rowDiff, color: color)
         }

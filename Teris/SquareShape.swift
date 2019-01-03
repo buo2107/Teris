@@ -8,7 +8,7 @@
 
 class SquareShape:Shape {
     /*
-     // #9
+     
      | 0•| 1 |
      | 2 | 3 |
      
@@ -18,7 +18,7 @@ class SquareShape:Shape {
     
     // The square shape will not rotate
     
-    // #10
+    
     override var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
         return [
             Orientation.Zero: [(0, 0), (1, 0), (0, 1), (1, 1)],
@@ -28,7 +28,7 @@ class SquareShape:Shape {
         ]
     }
     
-    // #11
+    
     override var bottomBlocksForOrientations: [Orientation: Array<Block>] {
         return [
             Orientation.Zero:       [blocks[ThirdBlockIdx], blocks[FourthBlockIdx]],
