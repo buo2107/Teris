@@ -91,21 +91,21 @@ class GameScene: SKScene {
     
     func addPreviewShapeToScene(shape:Shape, completion:@escaping () -> ()) {
         for block in shape.blocks {
-            // #10
+            
             var texture = textureCache[block.spriteName]
             if texture == nil {
                 texture = SKTexture(imageNamed: block.spriteName)
                 textureCache[block.spriteName] = texture
             }
             let sprite = SKSpriteNode(texture: texture)
-            // #11
+            
             sprite.position = pointForColumn(column: block.column, row:block.row - 2)
             shapeLayer.addChild(sprite)
             block.sprite = sprite
             
             // Animation
             sprite.alpha = 0
-            // #12
+            
             let moveAction = SKAction.move(to: pointForColumn(column: block.column, row: block.row), duration: TimeInterval(0.2))
             moveAction.timingMode = .easeOut
             let fadeInAction = SKAction.fadeAlpha(to: 0.7, duration: 0.4)
@@ -113,7 +113,6 @@ class GameScene: SKScene {
             sprite.run(SKAction.group([moveAction, fadeInAction]))
         }
         run(SKAction.wait(forDuration: 0.4), completion: completion)
-        //runAction(SKAction.waitForDuration(0.4), completion: completion)
     }
     
     func movePreviewShape(shape:Shape, completion:@escaping () -> ()) {
@@ -126,7 +125,6 @@ class GameScene: SKScene {
                 SKAction.group([moveToAction, SKAction.fadeAlpha(to: 1.0, duration: 0.2)]), completion: {})
         }
         run(SKAction.wait(forDuration: 0.2), completion: completion)
-        //runAction(SKAction.waitForDuration(0.2), completion: completion)
     }
     
     func redrawShape(shape:Shape, completion:@escaping () -> ()) {
@@ -137,7 +135,6 @@ class GameScene: SKScene {
             moveToAction.timingMode = .easeOut
             if block == shape.blocks.last {
                 sprite.run(moveToAction, completion: completion)
-                //sprite.runAction(moveToAction, completion: completion)
             } else {
                 sprite.run(moveToAction)
             }
@@ -145,15 +142,14 @@ class GameScene: SKScene {
     } // end redrawShape()
     
     /* 消除方塊動畫 */
-    // #1
     func animateCollapsingLines(linesToRemove: Array<Array<Block>>, fallenBlocks: Array<Array<Block>>, completion:@escaping () -> ()) {
         var longestDuration: TimeInterval = 0
-        // #2
+        
         for (columnIdx, column) in fallenBlocks.enumerated() {
             for (blockIdx, block) in column.enumerated() {
                 let newPosition = pointForColumn(column: block.column, row: block.row)
                 let sprite = block.sprite!
-                // #3
+                
                 let delay = (TimeInterval(columnIdx) * 0.05) + (TimeInterval(blockIdx) * 0.05)
                 let duration = TimeInterval(((sprite.position.y - newPosition.y) / BlockSize) * 0.1)
                 let moveAction = SKAction.move(to: newPosition, duration: duration)
@@ -168,7 +164,7 @@ class GameScene: SKScene {
         
         for rowToRemove in linesToRemove {
             for block in rowToRemove {
-                // #4
+               
                 let randomRadius = CGFloat(UInt(arc4random_uniform(400) + 100))
                 let goLeft = arc4random_uniform(100) % 2 == 0
                 
@@ -176,7 +172,7 @@ class GameScene: SKScene {
                 point = CGPoint(x: point.x + (goLeft ? -randomRadius : randomRadius), y: point.y)
                 
                 let randomDuration = TimeInterval(arc4random_uniform(2)) + 0.5
-                // #5
+                
                 var startAngle = CGFloat(Float.pi)
                 var endAngle = startAngle * 2
                 if goLeft {
@@ -187,7 +183,7 @@ class GameScene: SKScene {
                 let archAction = SKAction.follow(archPath.cgPath, asOffset: false, orientToPath: true, duration: randomDuration)
                 archAction.timingMode = .easeIn
                 let sprite = block.sprite!
-                // #6
+                
                 sprite.zPosition = 100
                 sprite.run(
                     SKAction.sequence(
@@ -195,7 +191,6 @@ class GameScene: SKScene {
                          SKAction.removeFromParent()]))
             }
         }
-        // #7
         run(SKAction.wait(forDuration: longestDuration), completion: completion)
     }
 }

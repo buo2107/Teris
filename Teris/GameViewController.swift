@@ -23,7 +23,8 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // hide the navigation back button
+        navigationItem.hidesBackButton = true
         // Configure the view
         let skView = view as! SKView
         skView.isMultipleTouchEnabled = false

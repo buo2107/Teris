@@ -123,7 +123,7 @@ class Shape: Hashable, CustomStringConvertible {
         guard let blockRowColumnTranslation:Array<(columnDiff: Int, rowDiff: Int)> = blockRowColumnPositions[orientation] else {
             return
         }
-        // #1
+        // 根据每個不同shape子類的blockRowColumnPosition關係，决定每一個block旋轉後的位置
         for (idx, diff) in blockRowColumnTranslation.enumerated() {
             blocks[idx].column = column + diff.columnDiff
             blocks[idx].row = row + diff.rowDiff
@@ -168,7 +168,7 @@ class Shape: Hashable, CustomStringConvertible {
         }
     }
     
-    // #3
+    // 直接將blocks移動到指定的行和列
     final func moveTo(column: Int, row:Int) {
         self.column = column
         self.row = row
@@ -177,7 +177,7 @@ class Shape: Hashable, CustomStringConvertible {
     
     final class func random(startingColumn:Int, startingRow:Int) -> Shape {
         switch Int(arc4random_uniform(NumShapeTypes)) {
-        // #4
+        // 隨機生成shape
         case 0:
             return SquareShape(column:startingColumn, row:startingRow)
         case 1:

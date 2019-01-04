@@ -5,8 +5,8 @@
 //  Created by User21 on 2018/12/13.
 //  Copyright © 2018 User21. All rights reserved.
 //
-
-// #5
+// 管理遊戲的邏輯和進程
+//
 let NumColumns = 10
 let NumRows = 20
 
@@ -17,7 +17,7 @@ let PreviewColumn = 12
 let PreviewRow = 1
 
 let PointsPerLine = 10
-let LevelThreshold = 500
+let LevelThreshold = 10
 
 protocol SwiftrisDelegate {
     // Invoked when the current round of Swiftris ends
@@ -61,7 +61,7 @@ class Swiftris {
         delegate?.gameDidBegin(swiftris: self)
     }
     
-    // #6
+
     func newShape() -> (fallingShape:Shape?, nextShape:Shape?) {
         fallingShape = nextShape
         nextShape = Shape.random(startingColumn: PreviewColumn, startingRow: PreviewRow)
@@ -164,6 +164,7 @@ class Swiftris {
         delegate?.gameShapeDidMove(swiftris: self)
     } // end moveShapeRight()
     
+    /* shape無法再往下落時 */
     func settleShape() {
         guard let shape = fallingShape else {
             return
@@ -171,7 +172,7 @@ class Swiftris {
         for block in shape.blocks {
             blockArray[block.column, block.row] = block
         }
-        fallingShape = nil
+        fallingShape = nil // swiftris會開始生成新的fallingshape
         delegate?.gameShapeDidLand(swiftris: self)
     } // end settleShape()
     
@@ -193,11 +194,12 @@ class Swiftris {
         delegate?.gameDidEnd(swiftris: self)
     }
     
+    /* 得分機制 */
     func removeCompletedLines() -> (linesRemoved: Array<Array<Block>>, fallenBlocks: Array<Array<Block>>) {
         var removedLines = Array<Array<Block>>()
         for row in (1..<NumRows).reversed() {
             var rowOfBlocks = Array<Block>()
-            // #11
+            
             for column in 0..<NumColumns {
                 guard let block = blockArray[column, row] else {
                     continue
@@ -212,11 +214,10 @@ class Swiftris {
             }
         }
         
-        // #12
         if removedLines.count == 0 {
             return ([], [])
         }
-        // #13
+        
         let pointsEarned = removedLines.count * PointsPerLine * level
         score += pointsEarned
         if score >= level * LevelThreshold {
@@ -227,7 +228,7 @@ class Swiftris {
         var fallenBlocks = Array<Array<Block>>()
         for column in 0..<NumColumns {
             var fallenBlocksArray = Array<Block>()
-            // #14
+            
             for row in (1..<removedLines[0][0].row).reversed() {
                 guard let block = blockArray[column, row] else {
                     continue

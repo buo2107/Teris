@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35D16AB021DF5D440067ECBC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D16AAF21DF5D440067ECBC /* FirstViewController.swift */; };
 		3908D59C21C22FF0005C05C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3908D59B21C22FF0005C05C6 /* AppDelegate.swift */; };
 		3908D5A021C22FF0005C05C6 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3908D59F21C22FF0005C05C6 /* Actions.sks */; };
 		3908D5A221C22FF0005C05C6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3908D5A121C22FF0005C05C6 /* GameScene.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35D16AAF21DF5D440067ECBC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		3908D59821C22FF0005C05C6 /* Teris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3908D59B21C22FF0005C05C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3908D59F21C22FF0005C05C6 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				3908D5C721C255D0005C05C6 /* SShape.swift */,
 				3908D5C921C25628005C05C6 /* ZShape.swift */,
 				3908D5CB21C2593C005C05C6 /* Swiftris.swift */,
+				35D16AAF21DF5D440067ECBC /* FirstViewController.swift */,
 			);
 			path = Teris;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D16AB021DF5D440067ECBC /* FirstViewController.swift in Sources */,
 				3908D5C421C2556F005C05C6 /* LShape.swift in Sources */,
 				3908D5BE21C254ED005C05C6 /* SquareShape.swift in Sources */,
 				3908D5A221C22FF0005C05C6 /* GameScene.swift in Sources */,
