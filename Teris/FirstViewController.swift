@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class FirstViewController: UIViewController {
 
+    @IBOutlet weak var playButtion: UIButton!
+    var audio: AVAudioPlayer?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,9 +20,21 @@ class FirstViewController: UIViewController {
         let image = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(image, for: .default)
         self.navigationController?.navigationBar.shadowImage = image
+        
+        do{
+            let url = Bundle.main.url(forResource: "Sounds/New Super Mario Bros - OverWorld", withExtension:"mp3")
+            audio = try AVAudioPlayer(contentsOf: url!)
+            audio?.prepareToPlay()
+        } catch {
+            print("Error")
+        }
+        audio?.play()
     }
     
-
+    @IBAction func startGame(_ sender: Any) {
+        audio?.stop()
+    }
+    
     /*
     // MARK: - Navigation
 

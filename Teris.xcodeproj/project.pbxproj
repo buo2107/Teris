@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		355A11DC21E0AB2800FCA7A9 /* ARCADE_I.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 355A11DB21E0AB2800FCA7A9 /* ARCADE_I.TTF */; };
+		35A7965321E0EA5400EE11B6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7965221E0EA5400EE11B6 /* SettingsViewController.swift */; };
 		35D16AB021DF5D440067ECBC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D16AAF21DF5D440067ECBC /* FirstViewController.swift */; };
 		3908D59C21C22FF0005C05C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3908D59B21C22FF0005C05C6 /* AppDelegate.swift */; };
 		3908D5A021C22FF0005C05C6 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3908D59F21C22FF0005C05C6 /* Actions.sks */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		355A11DB21E0AB2800FCA7A9 /* ARCADE_I.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ARCADE_I.TTF; sourceTree = "<group>"; };
+		35A7965221E0EA5400EE11B6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		35D16AAF21DF5D440067ECBC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		3908D59821C22FF0005C05C6 /* Teris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3908D59B21C22FF0005C05C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 		3908D59A21C22FF0005C05C6 /* Teris */ = {
 			isa = PBXGroup;
 			children = (
+				355A11DB21E0AB2800FCA7A9 /* ARCADE_I.TTF */,
 				3908D59B21C22FF0005C05C6 /* AppDelegate.swift */,
 				3908D59F21C22FF0005C05C6 /* Actions.sks */,
 				3908D5A121C22FF0005C05C6 /* GameScene.swift */,
@@ -108,6 +113,7 @@
 				3908D5C921C25628005C05C6 /* ZShape.swift */,
 				3908D5CB21C2593C005C05C6 /* Swiftris.swift */,
 				35D16AAF21DF5D440067ECBC /* FirstViewController.swift */,
+				35A7965221E0EA5400EE11B6 /* SettingsViewController.swift */,
 			);
 			path = Teris;
 			sourceTree = "<group>";
@@ -173,6 +179,7 @@
 				3908D5BA21C249A7005C05C6 /* Sprites.atlas in Resources */,
 				3908D5B821C24987005C05C6 /* Sounds in Resources */,
 				3908D5A721C22FF0005C05C6 /* Main.storyboard in Resources */,
+				355A11DC21E0AB2800FCA7A9 /* ARCADE_I.TTF in Resources */,
 				3908D5A921C22FF2005C05C6 /* Assets.xcassets in Resources */,
 				3908D5AC21C22FF2005C05C6 /* LaunchScreen.storyboard in Resources */,
 				3908D5A021C22FF0005C05C6 /* Actions.sks in Resources */,
@@ -193,6 +200,7 @@
 				3908D5C621C255AD005C05C6 /* JShape.swift in Sources */,
 				3908D5CC21C2593C005C05C6 /* Swiftris.swift in Sources */,
 				3908D5BC21C24C74005C05C6 /* Shape.swift in Sources */,
+				35A7965321E0EA5400EE11B6 /* SettingsViewController.swift in Sources */,
 				3908D5B421C23901005C05C6 /* Array2D.swift in Sources */,
 				3908D5C221C25555005C05C6 /* LineShape.swift in Sources */,
 				3908D5C821C255D0005C05C6 /* SShape.swift in Sources */,

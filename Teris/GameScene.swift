@@ -51,7 +51,7 @@ class GameScene: SKScene {
         gameLayer.addChild(shapeLayer)
         
         // 加入音樂
-        run(SKAction.repeatForever(SKAction.playSoundFileNamed("Sounds/theme.mp3", waitForCompletion: true)))
+        run(SKAction.repeatForever(SKAction.playSoundFileNamed("Sounds/GameMusic.mp3", waitForCompletion: true)))
     }
     
     func playSound(sound:String) {
@@ -144,7 +144,7 @@ class GameScene: SKScene {
     /* 消除方塊動畫 */
     func animateCollapsingLines(linesToRemove: Array<Array<Block>>, fallenBlocks: Array<Array<Block>>, completion:@escaping () -> ()) {
         var longestDuration: TimeInterval = 0
-        
+        // 為每個方塊計算角度
         for (columnIdx, column) in fallenBlocks.enumerated() {
             for (blockIdx, block) in column.enumerated() {
                 let newPosition = pointForColumn(column: block.column, row: block.row)

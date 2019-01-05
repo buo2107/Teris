@@ -76,6 +76,7 @@ class Swiftris {
         return (fallingShape, nextShape)
     } // end newShape()
     
+    /* 檢查shape是否超出框架範圍 */
     func detectIllegalPlacement() -> Bool {
         guard let shape = fallingShape else {
             return false

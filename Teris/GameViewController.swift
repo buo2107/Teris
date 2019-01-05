@@ -33,8 +33,6 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .aspectFill
         
-        
-        // #13
         scene.tick = didTick
         
         swiftris = Swiftris()
@@ -58,9 +56,9 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     @IBAction func didPan(_ sender: UIPanGestureRecognizer) {
         let currentPoint = sender.translation(in: self.view)
         if let originalPoint = panPointReference {
-            // #3
+        
             if abs(currentPoint.x - originalPoint.x) > (BlockSize * 0.9) {
-                // #4
+                
                 if sender.velocity(in: self.view).x > CGFloat(0) {
                     swiftris.moveShapeRight()
                     panPointReference = currentPoint
@@ -88,7 +86,6 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         
     }
     
-    // #15
     func didTick() {
         swiftris.letShapeFall()
     }
@@ -100,7 +97,6 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         }
         self.scene.addPreviewShapeToScene(shape: newShapes.nextShape!) {}
         self.scene.movePreviewShape(shape: fallingShape) {
-            // #16
             self.view.isUserInteractionEnabled = true
             self.scene.startTicking()
         }
@@ -133,11 +129,12 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     
     func gameDidLevelUp(swiftris: Swiftris) {
         levelLabel.text = "\(swiftris.level)"
+        // 升級後下落速度加快
         if scene.tickLengthMillis >= 100 {
             scene.tickLengthMillis -= 100
         }
         else if scene.tickLengthMillis > 50 {
-            scene.tickLengthMillis -= 50
+            scene.tickLengthMillis -= 25
         }
         scene.playSound(sound: "Sounds/levelup.mp3")
     }
@@ -167,7 +164,6 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         }
     } // end gameShapeDidLand()
     
-    // #17
     func gameShapeDidMove(swiftris: Swiftris) {
         scene.redrawShape(shape: swiftris.fallingShape!) {}
     }
