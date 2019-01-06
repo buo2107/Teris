@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		355A11DC21E0AB2800FCA7A9 /* ARCADE_I.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 355A11DB21E0AB2800FCA7A9 /* ARCADE_I.TTF */; };
+		358B68EE21E23FB90034764C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358B68ED21E23FB90034764C /* SoundManager.swift */; };
+		35A1254D21E21D2E00713E65 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A1254C21E21D2E00713E65 /* ResultViewController.swift */; };
+		35A1254F21E22E6100713E65 /* Quentin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 35A1254E21E22E6100713E65 /* Quentin.otf */; };
 		35A7965321E0EA5400EE11B6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7965221E0EA5400EE11B6 /* SettingsViewController.swift */; };
 		35D16AB021DF5D440067ECBC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D16AAF21DF5D440067ECBC /* FirstViewController.swift */; };
 		3908D59C21C22FF0005C05C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3908D59B21C22FF0005C05C6 /* AppDelegate.swift */; };
@@ -34,6 +37,9 @@
 
 /* Begin PBXFileReference section */
 		355A11DB21E0AB2800FCA7A9 /* ARCADE_I.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ARCADE_I.TTF; sourceTree = "<group>"; };
+		358B68ED21E23FB90034764C /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		35A1254C21E21D2E00713E65 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		35A1254E21E22E6100713E65 /* Quentin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Quentin.otf; sourceTree = "<group>"; };
 		35A7965221E0EA5400EE11B6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		35D16AAF21DF5D440067ECBC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		3908D59821C22FF0005C05C6 /* Teris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teris.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +96,7 @@
 		3908D59A21C22FF0005C05C6 /* Teris */ = {
 			isa = PBXGroup;
 			children = (
+				35A1254E21E22E6100713E65 /* Quentin.otf */,
 				355A11DB21E0AB2800FCA7A9 /* ARCADE_I.TTF */,
 				3908D59B21C22FF0005C05C6 /* AppDelegate.swift */,
 				3908D59F21C22FF0005C05C6 /* Actions.sks */,
@@ -114,6 +121,8 @@
 				3908D5CB21C2593C005C05C6 /* Swiftris.swift */,
 				35D16AAF21DF5D440067ECBC /* FirstViewController.swift */,
 				35A7965221E0EA5400EE11B6 /* SettingsViewController.swift */,
+				35A1254C21E21D2E00713E65 /* ResultViewController.swift */,
+				358B68ED21E23FB90034764C /* SoundManager.swift */,
 			);
 			path = Teris;
 			sourceTree = "<group>";
@@ -182,6 +191,7 @@
 				355A11DC21E0AB2800FCA7A9 /* ARCADE_I.TTF in Resources */,
 				3908D5A921C22FF2005C05C6 /* Assets.xcassets in Resources */,
 				3908D5AC21C22FF2005C05C6 /* LaunchScreen.storyboard in Resources */,
+				35A1254F21E22E6100713E65 /* Quentin.otf in Resources */,
 				3908D5A021C22FF0005C05C6 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +211,7 @@
 				3908D5CC21C2593C005C05C6 /* Swiftris.swift in Sources */,
 				3908D5BC21C24C74005C05C6 /* Shape.swift in Sources */,
 				35A7965321E0EA5400EE11B6 /* SettingsViewController.swift in Sources */,
+				35A1254D21E21D2E00713E65 /* ResultViewController.swift in Sources */,
 				3908D5B421C23901005C05C6 /* Array2D.swift in Sources */,
 				3908D5C221C25555005C05C6 /* LineShape.swift in Sources */,
 				3908D5C821C255D0005C05C6 /* SShape.swift in Sources */,
@@ -209,6 +220,7 @@
 				3908D5A421C22FF0005C05C6 /* GameViewController.swift in Sources */,
 				3908D5CA21C25628005C05C6 /* ZShape.swift in Sources */,
 				3908D59C21C22FF0005C05C6 /* AppDelegate.swift in Sources */,
+				358B68EE21E23FB90034764C /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

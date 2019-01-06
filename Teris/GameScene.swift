@@ -14,7 +14,6 @@ let TickLengthLevelOne = TimeInterval(600) //每隔0.6秒形狀就往下掉一�
 
 class GameScene: SKScene {
     
-    
     let gameLayer = SKNode()
     let shapeLayer = SKNode()
     let LayerPosition = CGPoint(x: 6, y: -6)
@@ -51,7 +50,7 @@ class GameScene: SKScene {
         gameLayer.addChild(shapeLayer)
         
         // 加入音樂
-        run(SKAction.repeatForever(SKAction.playSoundFileNamed("Sounds/GameMusic.mp3", waitForCompletion: true)))
+        //run(SKAction.repeatForever(SKAction.playSoundFileNamed("Sounds/theme.mp3", waitForCompletion: true)))
     }
     
     func playSound(sound:String) {

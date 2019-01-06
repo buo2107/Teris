@@ -17,7 +17,8 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     
     var panPointReference:CGPoint?
     
-
+    lazy var sound = SoundManager()
+    
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     
@@ -39,9 +40,12 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         swiftris.delegate = self
         swiftris.beginGame()
         
-        
         // Present the scene
         skView.presentScene(scene)
+        
+        // 加入背景音樂
+        scene.addChild(sound)
+        sound.playBackGround("Sounds/theme")
         
     }
 
@@ -123,7 +127,13 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene.stopTicking()
         scene.playSound(sound: "Sounds/gameover.mp3")
         scene.animateCollapsingLines(linesToRemove: swiftris.removeAllBlocks(), fallenBlocks: swiftris.removeAllBlocks()) {
-            swiftris.beginGame()
+            //swiftris.beginGame()
+            // 關掉背景音樂
+            self.sound.musicStop()
+            // 進入結果頁面
+            if let controller = self.storyboard?.instantiateViewController(withIdentifier: "ResultPage") {
+                self.present(controller, animated: true, completion: nil)
+            }
         }
     }
     
@@ -137,6 +147,9 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
             scene.tickLengthMillis -= 25
         }
         scene.playSound(sound: "Sounds/levelup.mp3")
+        // 升級後更換背景音樂
+        sound.musicStop()
+        sound.playBackGround("Sounds/Super Mario Bros")
     }
     
     func gameShapeDidDrop(swiftris: Swiftris) {
@@ -166,5 +179,12 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     
     func gameShapeDidMove(swiftris: Swiftris) {
         scene.redrawShape(shape: swiftris.fallingShape!) {}
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let controller = segue.destination as? ResultViewController
+        controller?.level = swiftris.level
+        controller?.score = swiftris.score
     }
 }
