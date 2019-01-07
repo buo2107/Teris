@@ -35,9 +35,5 @@ class SoundManager: SKNode {
     func musicStop() {
         bgMusicPlayer.stop()
     }
-    //播放点击音效动作的方法
-    /*func playHit(){
-        print("播放音效!")
-        self.run(hitAct)
-    }*/
+
 }

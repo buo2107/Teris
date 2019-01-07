@@ -33,6 +33,7 @@
 		3908D5C821C255D0005C05C6 /* SShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3908D5C721C255D0005C05C6 /* SShape.swift */; };
 		3908D5CA21C25628005C05C6 /* ZShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3908D5C921C25628005C05C6 /* ZShape.swift */; };
 		3908D5CC21C2593C005C05C6 /* Swiftris.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3908D5CB21C2593C005C05C6 /* Swiftris.swift */; };
+		3BAB188D21E32AB2009A3D83 /* BestGarde.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB188C21E32AB2009A3D83 /* BestGarde.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		3908D5C721C255D0005C05C6 /* SShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SShape.swift; sourceTree = "<group>"; };
 		3908D5C921C25628005C05C6 /* ZShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZShape.swift; sourceTree = "<group>"; };
 		3908D5CB21C2593C005C05C6 /* Swiftris.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swiftris.swift; sourceTree = "<group>"; };
+		3BAB188C21E32AB2009A3D83 /* BestGarde.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestGarde.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				35A7965221E0EA5400EE11B6 /* SettingsViewController.swift */,
 				35A1254C21E21D2E00713E65 /* ResultViewController.swift */,
 				358B68ED21E23FB90034764C /* SoundManager.swift */,
+				3BAB188C21E32AB2009A3D83 /* BestGarde.swift */,
 			);
 			path = Teris;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				3908D5C421C2556F005C05C6 /* LShape.swift in Sources */,
 				3908D5BE21C254ED005C05C6 /* SquareShape.swift in Sources */,
 				3908D5A221C22FF0005C05C6 /* GameScene.swift in Sources */,
+				3BAB188D21E32AB2009A3D83 /* BestGarde.swift in Sources */,
 				3908D5C621C255AD005C05C6 /* JShape.swift in Sources */,
 				3908D5CC21C2593C005C05C6 /* Swiftris.swift in Sources */,
 				3908D5BC21C24C74005C05C6 /* Shape.swift in Sources */,

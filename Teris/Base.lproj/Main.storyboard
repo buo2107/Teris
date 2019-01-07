@@ -36,7 +36,7 @@
         <!--First View Controller-->
         <scene sceneID="kC1-2j-A0w">
             <objects>
-                <viewController id="XKO-AQ-SFr" customClass="FirstViewController" customModule="Teris" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstPage" id="XKO-AQ-SFr" customClass="FirstViewController" customModule="Teris" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HMj-ax-x9w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,7 +225,7 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Teris" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GamePage" id="BV1-FR-VrT" customClass="GameViewController" customModule="Teris" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -381,12 +381,26 @@
                                 <rect key="frame" x="229" y="473" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="replay button"/>
+                                <connections>
+                                    <action selector="replay:" destination="D21-5f-dcK" eventType="touchUpInside" id="gdE-bz-nBb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hj4-3m-Lnj">
                                 <rect key="frame" x="16" y="488" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="backbutton"/>
+                                <connections>
+                                    <action selector="GoBack:" destination="D21-5f-dcK" eventType="touchUpInside" id="KeM-NX-0Zx"/>
+                                </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grade circle" translatesAutoresizingMaskIntoConstraints="NO" id="FfU-S4-1ys">
+                                <rect key="frame" x="34" y="324" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grade circle" translatesAutoresizingMaskIntoConstraints="NO" id="1vp-Vw-qZ1">
+                                <rect key="frame" x="183" y="324" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="NfQ-Ge-biK"/>
@@ -394,9 +408,12 @@
                     <connections>
                         <outlet property="resultLevel" destination="uN1-Px-wwx" id="qTp-jK-ROv"/>
                         <outlet property="resultScore" destination="Jff-Ki-5Vf" id="lW1-Vw-dr3"/>
+                        <segue destination="YDi-y1-d1K" kind="unwind" identifier="BackToFirstPage" unwindAction="unwindSegueBackWithSegue:" id="02Y-NQ-gUK"/>
+                        <segue destination="YDi-y1-d1K" kind="unwind" identifier="ReGame" unwindAction="unwindSegueReGameWithSegue:" id="hy1-K7-Vdy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbC-y2-vWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="YDi-y1-d1K" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="933.75" y="-326.40845070422534"/>
         </scene>
@@ -406,6 +423,7 @@
         <image name="frame" width="402.88525390625" height="275.80328369140625"/>
         <image name="gameboard" width="200" height="400"/>
         <image name="gold frame" width="6152" height="6261"/>
+        <image name="grade circle" width="440" height="451"/>
         <image name="play button" width="900" height="900"/>
         <image name="replay button" width="323" height="303"/>
         <image name="setting button" width="900" height="900"/>
