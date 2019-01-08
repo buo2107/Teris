@@ -125,32 +125,15 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     func gameDidEnd(swiftris: Swiftris) {
         view.isUserInteractionEnabled = false
         scene.stopTicking()
-        // 關掉背景音樂
-        self.sound.musicStop()
+        
         scene.playSound(sound: "Sounds/gameover.mp3")
         
-        // 寫入成績
-       /* let grade = ""
-        let fileName = "best_grade.txt"
-        let fileManager = FileManager.default
-        let file = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first
-        let path = file! + fileName
-        
-        FileManager.createFile(atPath: path, contents:nil, attributes:nil)
-        
-        */
         scene.animateCollapsingLines(linesToRemove: swiftris.removeAllBlocks(), fallenBlocks: swiftris.removeAllBlocks()) {
             //swiftris.beginGame()
-            
+            // 關掉背景音樂
+            self.sound.musicStop()
             // 進入結果頁面
-            let res = ResultViewController()
-            res.best_level = "\(swiftris.level)"
-            res.best_score = "\(swiftris.score)"
-            self.present(res, animated: true, completion: nil)
-            /*if let controller = self.storyboard?.instantiateViewController(withIdentifier: "ResultPage") {
-
-                self.present(controller, animated: true, completion: nil)
-            }*/
+            self.performSegue(withIdentifier: "showResult", sender: GameViewController())
         }
     }
     
@@ -166,7 +149,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene.playSound(sound: "Sounds/levelup.mp3")
         // 升級後更換背景音樂
         sound.musicStop()
-        sound.playBackGround("Sounds/Level"+"\(swiftris.level)")
+        sound.playBackGround("Sounds/Level"+levelLabel.text!)
     }
     
     func gameShapeDidDrop(swiftris: Swiftris) {
@@ -201,11 +184,11 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     @IBAction func unwindSegueReGame(segue: UIStoryboardSegue) {
         
     }
-   /*
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let controller = segue.destination as? ResultViewController
-        controller?.best_level = levelLabel.text
-        controller?.best_score = scoreLabel.text
-    }*/
+        controller?.res_level = levelLabel.text
+        controller?.res_score = scoreLabel.text
+    }
 }

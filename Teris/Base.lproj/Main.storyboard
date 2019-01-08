@@ -269,8 +269,8 @@
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcS-V2-Q8A">
-                                        <rect key="frame" x="8" y="45" width="68" height="47"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcS-V2-Q8A">
+                                        <rect key="frame" x="4" y="45" width="76" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="OriyaSangamMN-Bold" family="Oriya Sangam MN" pointSize="27"/>
                                         <color key="textColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -292,6 +292,7 @@
                     <connections>
                         <outlet property="levelLabel" destination="X9t-My-4ii" id="u8n-BH-QEA"/>
                         <outlet property="scoreLabel" destination="IcS-V2-Q8A" id="cUd-tB-Mxf"/>
+                        <segue destination="D21-5f-dcK" kind="show" identifier="showResult" id="T7w-0h-yE9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -361,18 +362,18 @@
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jff-Ki-5Vf">
-                                        <rect key="frame" x="164" y="76" width="68" height="47"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="33"/>
-                                        <color key="textColor" red="0.05539654940366745" green="0.53182697296142578" blue="0.88451820611953735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yV7-pl-kwy">
                                         <rect key="frame" x="66" y="-37" width="145" height="58"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Quentin" family="Quentin" pointSize="45"/>
                                         <color key="textColor" red="1" green="0.13619328689999999" blue="0.17068934999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jff-Ki-5Vf">
+                                        <rect key="frame" x="157" y="76" width="83" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="33"/>
+                                        <color key="textColor" red="0.05539654940366745" green="0.53182697296142578" blue="0.88451820611953735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -394,20 +395,36 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grade circle" translatesAutoresizingMaskIntoConstraints="NO" id="FfU-S4-1ys">
-                                <rect key="frame" x="34" y="324" width="100" height="100"/>
+                                <rect key="frame" x="141" y="327" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grade circle" translatesAutoresizingMaskIntoConstraints="NO" id="1vp-Vw-qZ1">
-                                <rect key="frame" x="183" y="324" width="100" height="100"/>
+                                <rect key="frame" x="71" y="289" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQA-nb-dIL">
+                                <rect key="frame" x="79" y="300" width="75" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArcadeInterlaced" family="Arcade Interlaced" pointSize="30"/>
+                                <color key="textColor" red="0.19481030088966786" green="0.82349750104504504" blue="0.12853211958803765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGM-EB-WrS">
+                                <rect key="frame" x="145" y="337" width="123" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArcadeInterlaced" family="Arcade Interlaced" pointSize="30"/>
+                                <color key="textColor" red="0.20131132346490699" green="0.44078776248928841" blue="0.9273824605855856" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="NfQ-Ge-biK"/>
                     </view>
                     <connections>
-                        <outlet property="resultLevel" destination="uN1-Px-wwx" id="qTp-jK-ROv"/>
-                        <outlet property="resultScore" destination="Jff-Ki-5Vf" id="lW1-Vw-dr3"/>
+                        <outlet property="bestLevel" destination="uN1-Px-wwx" id="nou-wb-5bP"/>
+                        <outlet property="bestScore" destination="Jff-Ki-5Vf" id="Eas-9f-d7c"/>
+                        <outlet property="resultLevel" destination="XQA-nb-dIL" id="4eJ-Sd-f4g"/>
+                        <outlet property="resultScore" destination="hGM-EB-WrS" id="xBE-pT-eBn"/>
                         <segue destination="YDi-y1-d1K" kind="unwind" identifier="BackToFirstPage" unwindAction="unwindSegueBackWithSegue:" id="02Y-NQ-gUK"/>
                         <segue destination="YDi-y1-d1K" kind="unwind" identifier="ReGame" unwindAction="unwindSegueReGameWithSegue:" id="hy1-K7-Vdy"/>
                     </connections>

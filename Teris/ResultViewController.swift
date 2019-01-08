@@ -12,16 +12,25 @@ class ResultViewController: UIViewController {
 
     @IBOutlet weak var resultLevel: UILabel!
     @IBOutlet weak var resultScore: UILabel!
-    var best_level: String?
-    var best_score: String?
     
-    var str_l: String?
-    var str_s: String?
+    @IBOutlet var bestLevel: UILabel!
+    @IBOutlet var bestScore: UILabel!
+    
+    var res_level: String?
+    var res_score: String?
+    
+    let userDefaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //str_l = best_level
-        //str_s = best_score
+        
+        // hide the navigation back button
+        navigationItem.hidesBackButton = true
+        
+        // 接收GameViewController回傳的值
+        resultLevel.text = res_level
+        resultScore.text = res_score
+        
     }
     /*
     override func viewWillAppear(_ animated: Bool) {
