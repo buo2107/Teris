@@ -31,6 +31,9 @@ class ResultViewController: UIViewController {
         resultLevel.text = res_level
         resultScore.text = res_score
         
+        bestLevel.text = Grade.MaxLevel()
+        bestScore.text = Grade.MaxScore()
+        
     }
     /*
     override func viewWillAppear(_ animated: Bool) {

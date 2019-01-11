@@ -19,6 +19,9 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     
     lazy var sound = SoundManager()
     
+    var grade = [Grade]()
+    var dateString: String!
+    
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     
@@ -43,9 +46,19 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         // Present the scene
         skView.presentScene(scene)
         
+        // 獲取當前時間
+        let now: Date = Date()
+        // 建立時間格式
+        let dateFormat: DateFormatter = DateFormatter()
+        dateFormat.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+        // 將當下時間換成設定的時間格式
+        dateString = dateFormat.string(from: now)
+        
         // 加入背景音樂
         scene.addChild(sound)
         sound.playBackGround("Sounds/Level1")
+        
+        grade = Grade.read()!
         
     }
 
@@ -125,11 +138,14 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
     func gameDidEnd(swiftris: Swiftris) {
         view.isUserInteractionEnabled = false
         scene.stopTicking()
-        
         scene.playSound(sound: "Sounds/gameover.mp3")
         
+        // 紀錄成績
+        grade.append(Grade(score: scoreLabel.text!, level: levelLabel.text!, date: dateString))
+
+        Grade.save(grade: grade)
+        
         scene.animateCollapsingLines(linesToRemove: swiftris.removeAllBlocks(), fallenBlocks: swiftris.removeAllBlocks()) {
-            //swiftris.beginGame()
             // 關掉背景音樂
             self.sound.musicStop()
             // 進入結果頁面
