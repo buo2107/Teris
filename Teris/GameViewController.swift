@@ -50,7 +50,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         let now: Date = Date()
         // 建立時間格式
         let dateFormat: DateFormatter = DateFormatter()
-        dateFormat.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+        dateFormat.dateFormat = "yyyy/MM/dd HH:mm:ss"
         // 將當下時間換成設定的時間格式
         dateString = dateFormat.string(from: now)
         
@@ -58,6 +58,9 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene.addChild(sound)
         sound.playBackGround("Sounds/Level1")
         
+        
+        
+        //UserDefaults.standard.removeObject(forKey: "grades")
         grade = Grade.read()!
         
     }
@@ -141,7 +144,7 @@ class GameViewController: UIViewController, SwiftrisDelegate, UIGestureRecognize
         scene.playSound(sound: "Sounds/gameover.mp3")
         
         // 紀錄成績
-        grade.append(Grade(score: scoreLabel.text!, level: levelLabel.text!, date: dateString))
+        grade.append(Grade(score: Int(scoreLabel.text!)!, level: Int(levelLabel.text!)!, date: dateString))
 
         Grade.save(grade: grade)
         

@@ -8,8 +8,8 @@
 import Foundation
 
 struct Grade : Codable {
-    var score: String
-    var level: String
+    var score: Int
+    var level: Int
     var date: String
     
     static func save(grade: [Grade]) {
@@ -26,28 +26,19 @@ struct Grade : Codable {
             return nil
         }
     }
-  /*
+    
     static func sort() {
         if let data = UserDefaults.standard.data(forKey: "grades"), var grade = try? PropertyListDecoder().decode([Grade].self, from: data) {
-            grade.sort( by: { $0.score > $1.score } )
-          //////////////////////
-            for i in 0..<grade.count-1 {
-                for j in 0..<grade.count-i-1 {
-                    if grade[j].score.compare(grade[j+1].score, options: .numeric) == .orderedAscending { // grade1 < grade2
-                        
-                    }
-                }
-            }
- //////////////////////////
+            grade.sort(by: {$0.score > $1.score})
         }
     }
-  */
+
     static func MaxScore() -> String? {
         if let data = UserDefaults.standard.data(forKey: "grades"), let grade = try? PropertyListDecoder().decode([Grade].self, from: data) {
             let result = grade.sorted(by: {$0.score > $1.score})
             print("score: ")
             print(result)
-            return result[0].score
+            return String(result[0].score)
         }
         else {
             return nil
@@ -56,10 +47,10 @@ struct Grade : Codable {
     
     static func MaxLevel() -> String? {
         if let data = UserDefaults.standard.data(forKey: "grades"), let grade = try? PropertyListDecoder().decode([Grade].self, from: data) {
-            let result = grade.sorted(by: {$0.score > $1.score})
+            let result = grade.sorted(by: {$0.level > $1.level})
             print("level: ")
             print(result)
-            return result[0].level
+            return String(result[0].level)
         }
         else {
             return nil

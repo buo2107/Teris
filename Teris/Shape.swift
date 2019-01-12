@@ -158,7 +158,6 @@ class Shape: Hashable, CustomStringConvertible {
         shiftBy(columns: -1, rows: 0)
     }
     
-    // #2
     final func shiftBy(columns: Int, rows: Int) {
         self.column += columns
         self.row += rows
